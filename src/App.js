@@ -3,8 +3,9 @@ import  Navbar  from './components/Navbar';
 import styled from 'styled-components';
 import { useRef, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-
-
+import Landing from './components/sections/Landing'
+import About from './components/sections/About'
+import Projects from './components/sections/Projects';
 
 
 const AppContainer = styled.div`
@@ -14,8 +15,7 @@ const AppContainer = styled.div`
   margin-right: auto;
 `;
 
-const MainWrapperContainer = styled.div`
-  background-color: #fff;
+const WrapperContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1280px;
@@ -49,18 +49,37 @@ const MainContainer = styled.div`
   }
 `;
 
-const LandingSection = styled.div`
+const Left = styled.div`
   @media (min-width: 1024px) {
-    position: sticky; /* lg:sticky */
-    top: 0; /* lg:top-0 */
-    display: flex; /* lg:flex */
-    height: 100vh; /* lg:h-screen */
-    width: 50%; /* lg:w-1/2 */
-    flex-direction: column; /* lg:flex-col */
-    justify-content: space-between; /* lg:justify-between */
-    padding-top: 0; /* lg:py-0 */
-    padding-bottom: 0; /* lg:py-0 */
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0; 
+    padding-bottom: 0;
   }
+`;
+
+const Right = styled.div`
+  height: 100vh;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+`;
+
+const RightSectionWrapper = styled.div`
+  border-radius: 0.375rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const CenteredContainer = styled.div`
@@ -69,6 +88,54 @@ const CenteredContainer = styled.div`
   display: flex; /* flex */
   justify-content: center; /* justify-center */
   align-items: center; /* items-center */
+`;
+
+// 
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 100vw;
+
+  @media (min-width: 640px) {
+    padding: 0 3rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 3rem;
+  }
+`;
+
+const Layout = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 100vh;
+  }
+`;
+
+const LeftContainer = styled.div`
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
+`;
+
+const CenteredContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 `;
 
 
@@ -89,11 +156,21 @@ function App() {
   return (
     <AppContainer>
       <Navbar/>
-      {/* <MainWrapperContainer>
-        <MainContainer>
-
-        </MainContainer>
-      </MainWrapperContainer> */}
+      <Container>
+        <Layout>
+          <LeftContainer>
+            <Landing/>
+          </LeftContainer>
+          <Right>
+            <RightSectionWrapper>
+              <About/>
+            </RightSectionWrapper>
+            <RightSectionWrapper>
+              <Projects/>
+            </RightSectionWrapper>
+          </Right>
+        </Layout>
+      </Container>
     </AppContainer>
   );
 }

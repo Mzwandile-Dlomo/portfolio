@@ -3,8 +3,25 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // Import Roboto and Poppins fonts
-import '@fontsource/roboto'; // Import Roboto font
-import '@fontsource/poppins'; // Import Poppins font
+import '@fontsource/roboto'; 
+import '@fontsource/poppins';
+
+
+const Wrapper = styled.div`
+  height: 4rem;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`;
+
 
 const Nav = styled.nav`
   height: 100%;
@@ -131,32 +148,34 @@ const Navbar = () => {
   };
 
   return (
-    <Nav>
-      <NavBrand>
-        <NavLink to="#">MJ</NavLink>
-      </NavBrand>
-      <Toggle onClick={toggleMenu}>
-        <IconBar />
-        <IconBar />
-        <IconBar />
-      </Toggle>
-      <MenuContainer isMenuOpen={isMenuOpen}>
-        <NavItems isOpen={isMenuOpen}>
-          <NavItem>
-            <NavLink to="#">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="#">About</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="#">Services</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="#">Contact</NavLink>
-          </NavItem>
-        </NavItems>
-      </MenuContainer>
-    </Nav>
+    <Wrapper>
+      <Nav>
+        <NavBrand>
+          <NavLink to="#">MJ</NavLink>
+        </NavBrand>
+        <Toggle onClick={toggleMenu}>
+          <IconBar />
+          <IconBar />
+          <IconBar />
+        </Toggle>
+        <MenuContainer isMenuOpen={isMenuOpen}>
+          <NavItems isOpen={isMenuOpen}>
+            <NavItem>
+              <NavLink to="#">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="#">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="#">Services</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="#">Contact</NavLink>
+            </NavItem>
+          </NavItems>
+        </MenuContainer>
+      </Nav>
+    </Wrapper>
   );
 };
 
