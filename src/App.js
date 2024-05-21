@@ -9,10 +9,27 @@ import Projects from './components/sections/Projects';
 
 
 const AppContainer = styled.div`
-  min-height: 100vh;         /* Equivalent to min-h-screen */
-  background-color: #132a13; /* Equivalent to bg-[#132a13] */
+  min-height: 100vh;
+  background-color: #132a13;
+  // width: 100vw;
   margin-left: auto;
   margin-right: auto;
+`;
+
+const MainWrapper = styled.div`
+  max-width: 100%;
+  padding: 0 1.5rem;
+  font-family: sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 768px) {
+    padding: 0 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 3rem;
+  }
 `;
 
 const WrapperContainer = styled.div`
@@ -41,63 +58,11 @@ const WrapperContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  @media (min-width: 1024px) {
-    display: flex; /* lg:flex */
-    justify-content: space-between; /* lg:justify-between */
-    gap: 1rem; /* lg:gap-4 */
-    min-height: 100vh; /* lg:min-h-screen */
-  }
-`;
-
-const Left = styled.div`
-  @media (min-width: 1024px) {
-    position: sticky;
-    top: 0;
-    display: flex;
-    height: 100vh;
-    width: 50%;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 0; 
-    padding-bottom: 0;
-  }
-`;
-
-const Right = styled.div`
-  height: 100vh;
-
-  @media (min-width: 1024px) {
-    width: 50%;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-`;
-
-const RightSectionWrapper = styled.div`
-  border-radius: 0.375rem;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const CenteredContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex; /* flex */
-  justify-content: center; /* justify-center */
-  align-items: center; /* items-center */
-`;
-
-// 
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: 100vw;
-
-  @media (min-width: 640px) {
-    padding: 0 3rem;
-  }
+  max-width: 100%;
+  padding: 0 1.5rem;
+  font-family: sans-serif;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 768px) {
     padding: 0 3rem;
@@ -108,7 +73,7 @@ const Container = styled.div`
   }
 `;
 
-const Layout = styled.div`
+const FlexContainer = styled.div`
   @media (min-width: 1024px) {
     display: flex;
     justify-content: space-between;
@@ -117,8 +82,9 @@ const Layout = styled.div`
   }
 `;
 
-const LeftContainer = styled.div`
+const LandingSection = styled.div`
   @media (min-width: 1024px) {
+    // position: -webkit-sticky;
     position: sticky;
     top: 0;
     display: flex;
@@ -126,21 +92,25 @@ const LeftContainer = styled.div`
     width: 50%;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `;
 
-const CenteredContent = styled.div`
+const FullScreenSection = styled.section`
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  background-color: ${(props) => props.bgColor};
 `;
 
 
 
 function App() {
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -156,21 +126,26 @@ function App() {
   return (
     <AppContainer>
       <Navbar/>
-      <Container>
-        <Layout>
-          <LeftContainer>
-            <Landing/>
-          </LeftContainer>
-          <Right>
-            <RightSectionWrapper>
-              <About/>
-            </RightSectionWrapper>
-            <RightSectionWrapper>
-              <Projects/>
-            </RightSectionWrapper>
-          </Right>
-        </Layout>
-      </Container>
+      <MainContainer>
+        <FlexContainer>
+          <LandingSection>
+            <div className="h-full w-full flex justify-center items-center">
+               <Landing />
+            </div>
+          </LandingSection>
+          <div className="lg:w-1/2 bg-[#]">
+            <FullScreenSection id="about" ref={aboutRef} bgColor="#173417">
+              <h1>ABOUT PAGE</h1>
+            </FullScreenSection>
+            <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
+              <h1>PROJECTS PAGE</h1>
+            </FullScreenSection>
+            <FullScreenSection id="contact" ref={contactRef} bgColor="#31572c">
+              <h1>CONTACT PAGE</h1>
+            </FullScreenSection>
+          </div>
+        </FlexContainer>
+      </MainContainer>
     </AppContainer>
   );
 }
