@@ -2,78 +2,74 @@ import './App.css';
 import  Navbar  from './components/Navbar';
 import styled from 'styled-components';
 import { useRef, useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-
+import Landing from './components/sections/Landing'
+import About from './components/sections/About'
+import Projects from './components/sections/Projects';
 
 
 const AppContainer = styled.div`
-  min-height: 100vh;         /* Equivalent to min-h-screen */
-  background-color: #132a13; /* Equivalent to bg-[#132a13] */
+  min-height: 100vh;
+  background-color: #132a13;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const MainWrapperContainer = styled.div`
-  background-color: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1280px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-family: sans-serif;
-
-  @media (min-width: 768px) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  @media (min-width: 1024px) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-`;
 
 const MainContainer = styled.div`
+  max-width: 100%;
+  padding: 0 1.5rem;
+  font-family: sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 768px) {
+    padding: 0 3rem;
+  }
+
   @media (min-width: 1024px) {
-    display: flex; /* lg:flex */
-    justify-content: space-between; /* lg:justify-between */
-    gap: 1rem; /* lg:gap-4 */
-    min-height: 100vh; /* lg:min-h-screen */
+    padding: 0 3rem;
+  }
+`;
+
+const FlexContainer = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 100vh;
   }
 `;
 
 const LandingSection = styled.div`
   @media (min-width: 1024px) {
-    position: sticky; /* lg:sticky */
-    top: 0; /* lg:top-0 */
-    display: flex; /* lg:flex */
-    height: 100vh; /* lg:h-screen */
-    width: 50%; /* lg:w-1/2 */
-    flex-direction: column; /* lg:flex-col */
-    justify-content: space-between; /* lg:justify-between */
-    padding-top: 0; /* lg:py-0 */
-    padding-bottom: 0; /* lg:py-0 */
+    // position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `;
 
-const CenteredContainer = styled.div`
-  height: 100%;
+const FullScreenSection = styled.section`
   width: 100%;
-  display: flex; /* flex */
-  justify-content: center; /* justify-center */
-  align-items: center; /* items-center */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.bgColor};
+  padding-top: 4rem;
 `;
 
 
 
 function App() {
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -85,15 +81,32 @@ function App() {
   }, []);
 
   
-
   return (
     <AppContainer>
-      <Navbar/>
-      {/* <MainWrapperContainer>
-        <MainContainer>
-
-        </MainContainer>
-      </MainWrapperContainer> */}
+      <Navbar 
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+        contactRef={contactRef}/>
+      <MainContainer>
+        <FlexContainer>
+          <LandingSection>
+            <div className="h-full w-full flex justify-center items-center">
+               <Landing />
+            </div>
+          </LandingSection>
+          <div className="lg:w-1/2 bg-[#]">
+            <FullScreenSection id="about" ref={aboutRef} bgColor="#173417">
+              <h1>ABOUT PAGE</h1>
+            </FullScreenSection>
+            <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
+              <h1>PROJECTS PAGE</h1>
+            </FullScreenSection>
+            <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
+              <h1>CONTACT PAGE</h1>
+            </FullScreenSection>
+          </div>
+        </FlexContainer>
+      </MainContainer>
     </AppContainer>
   );
 }
