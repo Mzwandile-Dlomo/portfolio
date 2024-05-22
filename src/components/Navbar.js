@@ -1,182 +1,264 @@
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { FaTimes, FaBars, FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { useSpring, animated } from 'react-spring';
 
-// Import Roboto and Poppins fonts
-import '@fontsource/roboto'; 
-import '@fontsource/poppins';
 
-
-const Wrapper = styled.div`
+const Header = styled.header`
   height: 4rem;
-
+  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 50;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-
 `;
-
 
 const Nav = styled.nav`
   height: 100%;
   width: 100%;
   max-width: 1024px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+`;
+
+const Logo = styled.div`
+  background-color: white;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const LogoLink = styled(Link)`
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
 `;
 
 const MenuContainer = styled.div`
   position: fixed;
   left: 0;
   right: 0;
-  top: 4rem; /* Adjust the top position as needed */
-  height: calc(100vh - 4rem); /* Adjust the height as needed */
+  top: 4rem;
+  height: calc(100vh - 4rem);
   background-color: black;
   z-index: 50;
-  transition: transform 0.3s ease-in-out;
-  ${(props) =>
-    props.isMenuOpen &&
-    css`
-      transform: translateX(0);
-    `}
-  ${(props) =>
-    !props.isMenuOpen &&
-    css`
-      transform: translateX(-100%);
-    `}
+  ${({ isMenuOpen }) =>
+    isMenuOpen
+      ? `
+    animation: slideInLeft 0.3s ease-in-out;
+  `
+      : `
+    display: none;
+  `}
 `;
 
-const NavBrand = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
+
+const MenuContent = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 `;
 
-const NavItems = styled.ul`
+const MenuList = styled(animated.ul)`
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    height: 100%;
-    overflow-y: auto;
-  }
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  will-change: transform, opacity;
 `;
 
-const NavItem = styled.li`
-  margin-right: 20px;
-`;
+const MenuListItem = styled.li``;
 
-const NavLink = styled(Link)`
+const MenuLink = styled.a`
   color: #ecf39e;
-  text-decoration: none;
-  padding: 0.5rem 1rem; /* py-2 px-4 */
-  border-radius: 0.25rem; /* rounded-md */
-  transition: all 0.3s ease-in-out;
-  font-family: 'Roboto', sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {
-    color: #3b82f6; /* hover:text-blue-300 */
-    transform: scale(1.05); /* hover:scale-105 */
+    color: #60a5fa;
+    transform: scale(1.05);
   }
 `;
 
-const SocialIcon = styled.a`
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 0 0.5rem;
-  transition: color 0.3s ease-in-out;
+const SocialMediaList = styled.ul`
+  margin-left: 0.25rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+`;
+
+const SocialMediaListItem = styled.li`
+  margin-right: 1.25rem;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+`;
+
+const SocialMediaLink = styled.a`
+  display: block;
+  color: inherit;
 
   &:hover {
     color: #ffd700;
   }
-
-  @media (max-width: 640px) {
-    font-size: 1.2rem;
-  }
 `;
 
-const Toggle = styled.button`
-  display: none;
-  background-color: transparent;
+const SocialMediaIcon = styled.div`
+  font-size: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  color: inherit;
+`;
+
+const MenuToggleButton = styled(animated.button)`
+  color: var(--menu-toggle-color, #ecf39e);
+  transition: color 0.3s ease-in-out;
+  background: none;
   border: none;
   cursor: pointer;
-  position: relative;
-  z-index: 51;
 
-  @media (max-width: 768px) {
-    display: block;
+  &:hover {
+    color: var(--menu-toggle-hover-color, #60a5fa);
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 
-const IconBar = styled.span`
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: #fff;
-  margin-bottom: 4px;
-`;
 
-const Navbar = () => {
+const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleButtonProps = useSpring({
+    transform: isMenuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+    config: { tension: 200, friction: 20 },
+  });
+
+  const menuListProps = useSpring({
+    opacity: isMenuOpen ? 1 : 0,
+    transform: isMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
+    delay: 30,
+    config: { tension: 200, friction: 20 },
+  });
+
+  const socialMediaIconsProps = useSpring({
+    from: { opacity: 0, y: -100 },
+    to: { opacity: 1, y: 0 },
+    delay: 0,
+    config: { mass: 1, tension: 280, friction: 20 },
+  });
+
+  const handleScroll = (ref) => {
+    const targetOffsetTop = ref.current.offsetTop;
+    const currentPosition = window.pageYOffset;
+    const offset = targetOffsetTop - currentPosition;
+
+    window.scrollTo({
+      top: currentPosition + offset,
+      behavior: 'smooth',
+    });
+
+    setIsMenuOpen(false);
+  };
+
   return (
-    <Wrapper>
+    <Header>
       <Nav>
-        <NavBrand>
-          <NavLink to="#">MJ</NavLink>
-        </NavBrand>
-        <Toggle onClick={toggleMenu}>
-          <IconBar />
-          <IconBar />
-          <IconBar />
-        </Toggle>
+        <Logo>
+          <LogoLink to="/">MJ</LogoLink>
+        </Logo>
         <MenuContainer isMenuOpen={isMenuOpen}>
-          <NavItems isOpen={isMenuOpen}>
-            <NavItem>
-              <NavLink to="#">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#">About</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#">Services</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#">Contact</NavLink>
-            </NavItem>
-          </NavItems>
+          <MenuContent>
+            <MenuList style={menuListProps}>
+              <MenuListItem>
+                <MenuLink onClick={(e) => { e.preventDefault(); handleScroll(aboutRef); }}>
+                  About
+                </MenuLink>
+              </MenuListItem>
+              <MenuListItem>
+                <MenuLink onClick={(e) => { e.preventDefault(); handleScroll(projectsRef); }}>
+                  Projects
+                </MenuLink>
+              </MenuListItem>
+              <MenuListItem>
+                <MenuLink onClick={(e) => { e.preventDefault(); handleScroll(contactRef); }}>
+                  Contact
+                </MenuLink>
+              </MenuListItem>
+            </MenuList>
+            <SocialMediaList style={socialMediaIconsProps}>
+              <SocialMediaListItem>
+                <SocialMediaLink href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+                  <SocialMediaIcon>
+                    <FaGithub />
+                  </SocialMediaIcon>
+                </SocialMediaLink>
+              </SocialMediaListItem>
+              <SocialMediaListItem>
+                <SocialMediaLink href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer">
+                  <SocialMediaIcon>
+                    <FaLinkedin />
+                  </SocialMediaIcon>
+                </SocialMediaLink>
+              </SocialMediaListItem>
+              <SocialMediaListItem>
+                <SocialMediaLink href="https://www.instagram.com/your-username" target="_blank" rel="noopener noreferrer">
+                  <SocialMediaIcon>
+                    <FaInstagram />
+                  </SocialMediaIcon>
+                </SocialMediaLink>
+              </SocialMediaListItem>
+              <SocialMediaListItem>
+                <SocialMediaLink href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer">
+                  <SocialMediaIcon>
+                    <FaTwitter />
+                  </SocialMediaIcon>
+                </SocialMediaLink>
+              </SocialMediaListItem>
+            </SocialMediaList>
+          </MenuContent>
         </MenuContainer>
+        <div className="flex items-center lg:hidden">
+          <MenuToggleButton style={toggleButtonProps} onClick={toggleMenu}>
+            {isMenuOpen ? <FaTimes className="h-6 w-6 fill-current" /> : <FaBars className="h-6 w-6 fill-current" />}
+          </MenuToggleButton>
+
+        </div>
       </Nav>
-    </Wrapper>
+    </Header>
   );
+};
+
+Navbar.propTypes = {
+  aboutRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element),
+  }).isRequired,
+  projectsRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element),
+  }).isRequired,
+  contactRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element),
+  }).isRequired,
 };
 
 export default Navbar;

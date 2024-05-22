@@ -2,7 +2,6 @@ import './App.css';
 import  Navbar  from './components/Navbar';
 import styled from 'styled-components';
 import { useRef, useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import Landing from './components/sections/Landing'
 import About from './components/sections/About'
 import Projects from './components/sections/Projects';
@@ -11,51 +10,10 @@ import Projects from './components/sections/Projects';
 const AppContainer = styled.div`
   min-height: 100vh;
   background-color: #132a13;
-  // width: 100vw;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const MainWrapper = styled.div`
-  max-width: 100%;
-  padding: 0 1.5rem;
-  font-family: sans-serif;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (min-width: 768px) {
-    padding: 0 3rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0 3rem;
-  }
-`;
-
-const WrapperContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1280px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-family: sans-serif;
-
-  @media (min-width: 768px) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  @media (min-width: 1024px) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-`;
 
 const MainContainer = styled.div`
   max-width: 100%;
@@ -103,6 +61,7 @@ const FullScreenSection = styled.section`
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.bgColor};
+  padding-top: 4rem;
 `;
 
 
@@ -122,10 +81,12 @@ function App() {
   }, []);
 
   
-
   return (
     <AppContainer>
-      <Navbar/>
+      <Navbar 
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+        contactRef={contactRef}/>
       <MainContainer>
         <FlexContainer>
           <LandingSection>
@@ -140,7 +101,7 @@ function App() {
             <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
               <h1>PROJECTS PAGE</h1>
             </FullScreenSection>
-            <FullScreenSection id="contact" ref={contactRef} bgColor="#31572c">
+            <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
               <h1>CONTACT PAGE</h1>
             </FullScreenSection>
           </div>
