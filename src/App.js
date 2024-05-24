@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from 'react';
 import Landing from './components/sections/Landing'
 import About from './components/sections/About'
 import Projects from './components/sections/Projects';
+import Contact from './components/sections/Contact';
 
 
 const AppContainer = styled.div`
@@ -102,7 +103,8 @@ function App() {
               <h1>PROJECTS PAGE</h1>
             </FullScreenSection>
             <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
-              <h1>CONTACT PAGE</h1>
+              {/* <h1>CONTACT PAGE</h1> */}
+              <Contact/>
             </FullScreenSection>
           </div>
         </FlexContainer>
