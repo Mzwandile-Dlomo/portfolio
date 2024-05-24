@@ -5,6 +5,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
 `;
 
 const Header = styled.div`
@@ -12,6 +17,13 @@ const Header = styled.div`
   background-color: #000;
   padding: 1rem;
   border-radius: 0.5rem;
+  width: 100%;
+  text-align: center;
+
+  @media (max-width: 600px) {
+    padding-top: 2rem;
+    padding: 0.5rem;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -25,6 +37,11 @@ const FormContainer = styled.div`
   background-color: #132a13;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -32,6 +49,11 @@ const Title = styled.h2`
   font-weight: bold;
   margin-bottom: 1rem;
   color: #fff;
+
+  @media (max-width: 600px) {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -46,6 +68,11 @@ const StyledInput = styled.input`
 
   &:focus {
     border-color: #69b25b;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
@@ -63,6 +90,11 @@ const StyledTextarea = styled.textarea`
   &:focus {
     border-color: #69b25b;
   }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -78,18 +110,30 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #69b25b;
   }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
 `;
 
 const ResponseMessage = styled.p`
   margin-top: 1rem;
   color: #28a745;
   font-weight: bold;
+
+  @media (max-width: 600px) {
+    margin-top: 0.5rem;
+  }
 `;
 
 const ErrorMessage = styled.p`
   margin-top: 1rem;
   color: #dc3545;
   font-weight: bold;
+
+  @media (max-width: 600px) {
+    margin-top: 0.5rem;
+  }
 `;
 
 const Contact = () => {
