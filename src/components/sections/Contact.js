@@ -15,6 +15,10 @@ const Header = styled.div`
 `;
 
 const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 30rem;
   margin-top: 2rem;
   padding: 1.5rem;
@@ -36,7 +40,7 @@ const StyledInput = styled.input`
   border-radius: 0.5rem;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  color: #000;
+  color: #69b25b;
   background-color: transparent;
   outline: none;
 `;
@@ -47,7 +51,7 @@ const StyledTextarea = styled.textarea`
   border-radius: 0.5rem;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  color: #000;
+  color: #69b25b;
   background-color: transparent;
   outline: none;
   resize: none;
@@ -64,7 +68,7 @@ const SubmitButton = styled.button`
   width: 100%;
 
   &:hover {
-    background-color: #0066ff;
+    background-color: #69b25b;
   }
 `;
 
