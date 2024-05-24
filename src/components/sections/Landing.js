@@ -18,6 +18,35 @@ const InnerContainer = styled.div`
 `;
 
 
+// const ResumeButtonContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 1rem;
+
+//   @media (min-width: 1024px) {
+//     display: none;
+//   }
+// `;
+
+// const ResumeButton = styled.a`
+//   display: none;
+
+//   @media (min-width: 1024px) {
+//     display: block;
+//     text-decoration: none;
+//     color: white;
+//     background-color: #60a5fa;
+//     padding: 0.5rem 1rem;
+//     border-radius: 0.375rem;
+//     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+//     &:hover {
+//       background-color: #3b82f6;
+//       transform: scale(1.05);
+//     }
+//   }
+// `;
+
 const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
@@ -253,6 +282,11 @@ const Landing = () => {
               </SocialMediaLink>
             </SocialMediaListItem>
           </SocialMediaList>
+          {/* <ResumeButtonContainer>
+            <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
+              Resume
+            </ResumeButton>
+          </ResumeButtonContainer> */}
        </InnerContainer>
     </Container>
   );

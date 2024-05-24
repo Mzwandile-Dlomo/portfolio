@@ -46,6 +46,26 @@ const LogoLink = styled(Link)`
   text-decoration: none;
 `;
 
+const ResumeButton = styled.a`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #69b25b;
+      transform: scale(1.05);
+    }
+  }
+`;
+
 const MenuContainer = styled.div`
   position: fixed;
   left: 0;
@@ -187,6 +207,9 @@ const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
         <Logo>
           <LogoLink to="/">MJ</LogoLink>
         </Logo>
+        <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
+          Resume
+        </ResumeButton>
         <MenuContainer isMenuOpen={isMenuOpen}>
           <MenuContent>
             <MenuList style={menuListProps}>
