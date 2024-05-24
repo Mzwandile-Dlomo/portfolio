@@ -43,6 +43,10 @@ const StyledInput = styled.input`
   color: #69b25b;
   background-color: transparent;
   outline: none;
+
+  &:focus {
+    border-color: #69b25b;
+  }
 `;
 
 const StyledTextarea = styled.textarea`
@@ -55,6 +59,10 @@ const StyledTextarea = styled.textarea`
   background-color: transparent;
   outline: none;
   resize: none;
+
+  &:focus {
+    border-color: #69b25b;
+  }
 `;
 
 const SubmitButton = styled.button`
