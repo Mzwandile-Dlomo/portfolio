@@ -10,6 +10,13 @@ const Container = styled.div`
   @media (max-width: 600px) {
     padding: 0.5rem;
   }
+
+  @media (max-width: 900px) {
+    padding: 0.7rem;
+  }
+  @media (max-width: 1200px) {
+    padding: 1rem;
+  }
 `;
 
 const Header = styled.div`
@@ -21,6 +28,11 @@ const Header = styled.div`
   text-align: center;
 
   @media (max-width: 600px) {
+    padding-top: 1.5rem;
+    padding: 0.3rem;
+  }
+
+  @media (max-width: 900px) {
     padding-top: 2rem;
     padding: 0.5rem;
   }
@@ -39,7 +51,17 @@ const FormContainer = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 600px) {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 0.6rem;
+    padding: 0.8rem;
+  }
+
+  @media (max-width: 1300px) {
+    margin-top: 0.7rem;
     padding: 1rem;
   }
 `;
@@ -51,6 +73,16 @@ const Title = styled.h2`
   color: #fff;
 
   @media (max-width: 600px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  @media (max-width: 13000px) {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
   }
@@ -74,6 +106,13 @@ const StyledInput = styled.input`
     padding: 0.5rem;
     margin-bottom: 0.75rem;
   }
+
+  @media (max-width: 900px) {
+    padding: 0.7rem;
+    margin-bottom: 0.85rem;
+  }
+
+  
 `;
 
 const StyledTextarea = styled.textarea`
@@ -95,6 +134,11 @@ const StyledTextarea = styled.textarea`
     padding: 0.5rem;
     margin-bottom: 0.75rem;
   }
+
+  @media (max-width: 900px) {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -113,6 +157,10 @@ const SubmitButton = styled.button`
 
   @media (max-width: 600px) {
     padding: 0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0.7rem;
   }
 `;
 
@@ -175,7 +223,7 @@ const Contact = () => {
   return (
     <Container>
       <Header>
-        <h1 style={{ color: '#fff' }}>Contact</h1>
+        <h1 className='text-white'>Contact</h1>
       </Header>
       <FormContainer>
         <Title>Get in Touch</Title>
