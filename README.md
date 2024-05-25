@@ -38,17 +38,13 @@ Provide a link to a live demo or a GIF/screenshot of your project in action.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/Mzwandile-Dlomo/portfolio.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd your-project
+   cd portfolio
    ```
 3. Install dependencies:
-   ```bash
-   npm install
-   ```
-   or
    ```bash
    yarn install
    ```
@@ -59,10 +55,6 @@ Provide a link to a live demo or a GIF/screenshot of your project in action.
 
 Start the development server with:
 ```bash
-npm start
-```
-or
-```bash
 yarn start
 ```
 Open your browser and visit `http://localhost:3000` to see your application in action.
@@ -71,10 +63,6 @@ Open your browser and visit `http://localhost:3000` to see your application in a
 
 Build the project for production with:
 ```bash
-npm run build
-```
-or
-```bash
 yarn build
 ```
 The output will be in the `build` directory.
@@ -82,9 +70,7 @@ The output will be in the `build` directory.
 ## Technologies Used
 
 - [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/) (if applicable)
-- [Redux](https://redux.js.org/) (if applicable)
-- [Axios](https://axios-http.com/) (if applicable)
+- [React Router](https://reactrouter.com/)
 - [Styled-components](https://styled-components.com/) (or any other CSS framework/library)
 - ...
 
