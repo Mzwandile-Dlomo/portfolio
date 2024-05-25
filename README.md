@@ -107,9 +107,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [your-email@example.com](mailto:your-email@example.com)
+Your Name - [mjdlomo@proton.me](mailto:mjdlomo@proton.me)
 
-Project Link: [https://github.com/your-username/your-project](https://github.com/your-username/your-project)
+Project Link: [https://github.com/Mzwandile-Dlomo/portfolio](https://github.com/Mzwandile-Dlomo/portfolio)
 ```
 
 Feel free to customize the placeholder text (like `Project Name`, `Feature 1`, `your-username`, etc.) to match your project's details.
