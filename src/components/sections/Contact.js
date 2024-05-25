@@ -15,7 +15,7 @@ const Container = styled.div`
     padding: 0.7rem;
   }
   @media (max-width: 1200px) {
-    padding: 0.7rem;
+    padding: 1rem;
   }
 `;
 
@@ -137,7 +137,7 @@ const StyledTextarea = styled.textarea`
 
   @media (max-width: 900px) {
     padding: 0.7rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
 `;
 
