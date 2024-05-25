@@ -162,6 +162,55 @@ const MenuToggleButton = styled(animated.button)`
 `;
 
 
+// 
+
+const Anchor = styled.a`
+  color: inherit;
+  --ital: 0; 
+  font-variation-settings: "wght" var(--wght), "slnt" var(--ital), "ital" var(--ital);
+  text-decoration: none; 
+  transition: transform .4s ease-out; 
+  transform-origin: left top; 
+  font-variation-settings: "wght" 800; 
+  display: inline-flex; 
+  align-items: center;
+
+  &:hover .hover-reveal { 
+    clip-path: inset(0);
+  }
+`;
+
+const FlexBody = styled.div`
+  font-size: calc(calc(100vw - var(--scrollbar-width))/24 * 0.2666666667); 
+  letter-spacing: -0.06em;
+`;
+
+const Caps = styled.span`
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #fff;
+  color: #000;
+  padding: 0.6rem;
+  border-radius: 40%;
+`;
+
+const HeaderLogo = styled.span`
+  font-family: inherit; 
+  color: inherit;
+  transition: color .4s .1s ease-out;
+`;
+
+const HoverReveal = styled.span`
+  clip-path: inset(-1rem 100% 0 0); 
+  transition: .5s clip-path ease-out !important; 
+  margin-left: .2em;
+  // background-color: #69b25b;
+  padding: 0.3rem;
+`;
+
+// 
+
+
 const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -201,12 +250,22 @@ const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
     setIsMenuOpen(false);
   };
 
+  // const handleScroll = (ref) => {
+  //   ref.current.scrollIntoView({ behavior: 'smooth' });
+  //   setIsMenuOpen(false);
+  // };
+
+
   return (
     <Header>
       <Nav>
-        <Logo>
+        {/* <Logo>
           <LogoLink to="/">MJ</LogoLink>
-        </Logo>
+        </Logo> */}
+        <Anchor className="header__logo caps flex-body mono" href="/">
+          <Caps>MJ</Caps>
+          <HoverReveal className="hover-reveal">Mzwandile Dlomo</HoverReveal>
+        </Anchor>
         <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
           Resume
         </ResumeButton>
