@@ -91,9 +91,9 @@ function App() {
       <MainContainer>
         <FlexContainer>
           <LandingSection>
-            <div className="h-full w-full flex justify-center items-center">
+            {/* <div className="h-full w-full flex justify-center items-center"> */}
                <Landing />
-            </div>
+            {/* </div> */}
           </LandingSection>
           <div className="lg:w-1/2 bg-[#]">
             <FullScreenSection id="about" ref={aboutRef} bgColor="#173417">
