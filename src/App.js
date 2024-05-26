@@ -1,4 +1,3 @@
-import './App.css';
 import  Navbar  from './components/Navbar';
 import styled from 'styled-components';
 import { useRef, useEffect, useState } from 'react';

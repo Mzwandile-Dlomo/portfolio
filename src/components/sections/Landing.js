@@ -1,7 +1,36 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
+/* Importing Montserrat font */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  /* Importing Roboto font */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  /* Importing Open Sans font */
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+  /* Importing Lato font */
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+  /* Importing Nunito font */
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+  /* Importing Source Sans Pro font */
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+  /* Importing Poppins font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Importing Playfair Display font */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+  /* Importing Quicksand font */
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -40,55 +69,59 @@ const ResumeButton = styled.a`
     background-color: #69b25b;
     transform: scale(1.05);
   }
-
-  // @media (min-width: 421px) {
-  //   display: none;
-  // }
 `;
 
-// const ResumeButtonContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 1rem;
-
-//   @media (min-width: 1024px) {
-//     display: none;
-//   }
-// `;
-
-// const ResumeButton = styled.a`
-//   display: none;
-
-//   @media (min-width: 1024px) {
-//     display: block;
-//     text-decoration: none;
-//     color: white;
-//     background-color: #60a5fa;
-//     padding: 0.5rem 1rem;
-//     border-radius: 0.375rem;
-//     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-//     &:hover {
-//       background-color: #3b82f6;
-//       transform: scale(1.05);
-//     }
-//   }
-// `;
-
 const Title = styled.h1`
+  font-family: 'Nunito', 'Montserrat', sans-serif;
   font-size: 2.5rem;
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1.2;
-  color: #FFD700;
+  color: #9BCF53;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  perspective: 1000px;
+  cursor: pointer;
 
   @media (min-width: 640px) {
     font-size: 3.125rem;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
+  &:hover {
+    color: #76885B;
+    transform: scale(1.05);
+
+    span {
+      display: inline-block;
+      animation: growAndShift 0.5s ease-in-out both;
+      animation-delay: calc(var(--char-index) * 0.05s);
+      color: #9BCF53;
+    }
+  }
+
+  @keyframes growAndShift {
+    0% {
+      transform: rotateX(0) rotateY(0) scale(1);
+    }
+    50% {
+      transform: rotateX(20deg) rotateY(20deg) scale(1.2);
+    }
+    100% {
+      transform: rotateX(0) rotateY(0) scale(1);
+    }
+  }
+
+  span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .space {
+    margin-right: 0.2em;
+  }
+
+  .surname{
+    color: #76885B;
   }
 `;
 
@@ -228,12 +261,20 @@ const Landing = () => {
     };
   }, []);
 
+  const text = 'Mzwandile';
+
   return (
     <Container>
       <InnerContainer>
         <div>
           <Title>
-            <a href="/" className="text-yellow-500">Mzwandile Dlomo</a>
+            {text.split('').map((char, index) => (
+              <span key={index} style={{ '--char-index': index }}>
+                {char}
+              </span>
+            ))}
+            <span className="space"></span>
+            <span className='surname'>Dlomo</span>
           </Title>
           <Subtitle>Junior Software Engineer</Subtitle>
           <Description>
