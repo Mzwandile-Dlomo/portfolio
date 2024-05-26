@@ -122,6 +122,7 @@ const Title = styled.h1`
 
   .surname{
     color: #76885B;
+    display: inline-block;
   }
 `;
 
@@ -274,7 +275,7 @@ const Landing = () => {
               </span>
             ))}
             <span className="space"></span>
-            <span className='surname'>Dlomo</span>
+            <h1 className='surname'>Dlomo</h1>
           </Title>
           <Subtitle>Junior Software Engineer</Subtitle>
           <Description>
