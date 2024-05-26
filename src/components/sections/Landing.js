@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
 /* Importing Montserrat font */
@@ -218,7 +219,7 @@ const SocialMediaListItem = styled.li`
   flex-shrink: 0;
 `;
 
-const SocialMediaLink = styled.a`
+const SocialMediaLink = styled(Link)`
   display: block;
   color: inherit;
 
@@ -354,7 +355,7 @@ const Landing = () => {
           </SocialMediaList>
           <ResumeButtonContainer>
             <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
+              Résumé
             </ResumeButton>
           </ResumeButtonContainer>
        </InnerContainer>

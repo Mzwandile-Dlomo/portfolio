@@ -49,7 +49,7 @@ const About = () => {
 
   return (
     <Wrapper>
-        <div className="mt-4 pt-12 bg-black p-4 rounded-md">
+        <div className="bg-black p-4 rounded-md">
             <h1 className="text-white">About</h1>
         </div>
         <MainContainer>

@@ -31,22 +31,8 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const Logo = styled.div`
-  background-color: white;
-  border-radius: 0.375rem;
-  padding: 0.75rem;
-  display: flex;
-  justify-content: flex-start;
-`;
 
-const LogoLink = styled(Link)`
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: black;
-  text-decoration: none;
-`;
-
-const ResumeButton = styled.a`
+const ResumeButton = styled(Link)`
   display: none;
 
   @media (min-width: 1024px) {
@@ -98,11 +84,12 @@ const MenuList = styled(animated.ul)`
   gap: 1rem;
   margin-top: 2rem;
   will-change: transform, opacity;
+  cursor: pointer;
 `;
 
 const MenuListItem = styled.li``;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
   color: #ecf39e;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
@@ -129,7 +116,7 @@ const SocialMediaListItem = styled.li`
   flex-shrink: 0;
 `;
 
-const SocialMediaLink = styled.a`
+const SocialMediaLink = styled(Link)`
   display: block;
   color: inherit;
 
@@ -161,10 +148,7 @@ const MenuToggleButton = styled(animated.button)`
   }
 `;
 
-
-// 
-
-const Anchor = styled.a`
+const Logo = styled(Link)`
   color: inherit;
   --ital: 0; 
   font-variation-settings: "wght" var(--wght), "slnt" var(--ital), "ital" var(--ital);
@@ -180,11 +164,6 @@ const Anchor = styled.a`
   }
 `;
 
-const FlexBody = styled.div`
-  font-size: calc(calc(100vw - var(--scrollbar-width))/24 * 0.2666666667); 
-  letter-spacing: -0.06em;
-`;
-
 const Caps = styled.span`
   text-transform: uppercase;
   font-weight: bold;
@@ -194,21 +173,16 @@ const Caps = styled.span`
   border-radius: 40%;
 `;
 
-const HeaderLogo = styled.span`
-  font-family: inherit; 
-  color: inherit;
-  transition: color .4s .1s ease-out;
-`;
-
 const HoverReveal = styled.span`
   clip-path: inset(-1rem 100% 0 0); 
   transition: .5s clip-path ease-out !important; 
   margin-left: .2em;
   // background-color: #69b25b;
+  border: .03rem solid #69b25b;
+  border-radius: .3rem;
   padding: 0.3rem;
 `;
 
-// 
 
 
 const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
@@ -259,15 +233,12 @@ const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
   return (
     <Header>
       <Nav>
-        {/* <Logo>
-          <LogoLink to="/">MJ</LogoLink>
-        </Logo> */}
-        <Anchor className="header__logo caps flex-body mono" href="/">
+        <Logo className="header__logo caps flex-body mono" href="/">
           <Caps>MJ</Caps>
           <HoverReveal className="hover-reveal">Mzwandile Dlomo</HoverReveal>
-        </Anchor>
-        <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-          Resume
+        </Logo>
+        <ResumeButton to="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
+          Résumé
         </ResumeButton>
         <MenuContainer isMenuOpen={isMenuOpen}>
           <MenuContent>
@@ -290,28 +261,28 @@ const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
             </MenuList>
             <SocialMediaList style={socialMediaIconsProps}>
               <SocialMediaListItem>
-                <SocialMediaLink href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+                <SocialMediaLink to="https://github.com/Mzwandile-Dlomo" target="_blank" rel="noopener noreferrer">
                   <SocialMediaIcon>
                     <FaGithub />
                   </SocialMediaIcon>
                 </SocialMediaLink>
               </SocialMediaListItem>
               <SocialMediaListItem>
-                <SocialMediaLink href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer">
+                <SocialMediaLink to="https://www.linkedin.com/in/mzwandile-dlomo/" target="_blank" rel="noopener noreferrer">
                   <SocialMediaIcon>
                     <FaLinkedin />
                   </SocialMediaIcon>
                 </SocialMediaLink>
               </SocialMediaListItem>
               <SocialMediaListItem>
-                <SocialMediaLink href="https://www.instagram.com/your-username" target="_blank" rel="noopener noreferrer">
+                <SocialMediaLink to="https://www.instagram.com/__mjdlomo" target="_blank" rel="noopener noreferrer">
                   <SocialMediaIcon>
                     <FaInstagram />
                   </SocialMediaIcon>
                 </SocialMediaLink>
               </SocialMediaListItem>
               <SocialMediaListItem>
-                <SocialMediaLink href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer">
+                <SocialMediaLink to="https://twitter.com/worldmjdlomo" target="_blank" rel="noopener noreferrer">
                   <SocialMediaIcon>
                     <FaTwitter />
                   </SocialMediaIcon>
