@@ -90,19 +90,17 @@ function App() {
       <MainContainer>
         <FlexContainer>
           <LandingSection>
-            {/* <div className="h-full w-full flex justify-center items-center"> */}
-               <Landing />
-            {/* </div> */}
+            <Landing />
           </LandingSection>
           <div className="lg:w-1/2 bg-[#]">
             <FullScreenSection id="about" ref={aboutRef} bgColor="#173417">
-              <h1>ABOUT PAGE</h1>
+              <About />
             </FullScreenSection>
             <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
               <h1>PROJECTS PAGE</h1>
+              {/* <Projects/> */}
             </FullScreenSection>
             <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
-              {/* <h1>CONTACT PAGE</h1> */}
               <Contact/>
             </FullScreenSection>
           </div>

@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const GlobalStyle = createGlobalStyle`
+createGlobalStyle`
 /* Importing Montserrat font */
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -122,6 +123,7 @@ const Title = styled.h1`
 
   .surname{
     color: #76885B;
+    display: inline-block;
   }
 `;
 
@@ -217,7 +219,7 @@ const SocialMediaListItem = styled.li`
   flex-shrink: 0;
 `;
 
-const SocialMediaLink = styled.a`
+const SocialMediaLink = styled(Link)`
   display: block;
   color: inherit;
 
@@ -274,7 +276,7 @@ const Landing = () => {
               </span>
             ))}
             <span className="space"></span>
-            <span className='surname'>Dlomo</span>
+            <h1 className='surname'>Dlomo</h1>
           </Title>
           <Subtitle>Junior Software Engineer</Subtitle>
           <Description>
@@ -353,7 +355,7 @@ const Landing = () => {
           </SocialMediaList>
           <ResumeButtonContainer>
             <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
+              Résumé
             </ResumeButton>
           </ResumeButtonContainer>
        </InnerContainer>
