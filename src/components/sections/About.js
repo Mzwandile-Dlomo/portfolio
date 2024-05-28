@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import avatar from '../../assets/avatar.png';
 
+// Import custom font
+import '@fontsource/caveat';
 
 const Wrapper = styled.div`
-  border-radius: 0.375rem; /* Equivalent to rounded-md in Tailwind CSS */
+  border-radius: 0.375rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,6 +20,8 @@ const MainContainer = styled.div`
   align-items: center;
   height: 100%;
   overflow: hidden;
+  padding: 1.8rem;
+  color: #9BCF89;
 `;
 
 const Paragraph = styled.p`
@@ -30,8 +33,101 @@ const Paragraph = styled.p`
   margin-bottom: 12px;
 `;
 
-const About = () => {
+const Emphasis = styled.span`
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  padding-right: 5px;
+`;
 
+const CardContainer = styled.div`
+  width: 16rem;
+  height: 15rem;
+  perspective: 1000px;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover .front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .back {
+    transform: rotateY(0deg);
+  }
+`;
+
+const AboutCard = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.6s;
+`;
+
+const FrontCard = styled(AboutCard)`
+  background-color: #4A5568;
+  transform: rotateY(0deg);
+`;
+
+const BackCard = styled(AboutCard)`
+  background-color: #2D3748;
+  transform: rotateY(-180deg);
+`;
+
+const SkillsContainer = styled.div`
+  background-color: #2D3748;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .skills-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+
+  .skill-bar {
+    height: 1rem;
+    background-color: #4A5568; 
+    border-radius: 0.375rem;
+    flex-grow: 1;
+    margin: 0 0.5rem;
+    position: relative;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background-color: #48BB78;
+    border-radius: 0.375rem;
+  }
+`;
+
+const About = () => {
   const skills = [
     { name: 'C#', strength: 4 },
     { name: 'Java', strength: 4 },
@@ -41,53 +137,39 @@ const About = () => {
 
   const maxStrength = Math.max(...skills.map((skill) => skill.strength));
 
-  const [isFlipped, setIsFlipped] = useState(false);
-  const handleCardClick = () => {
-    setIsFlipped((prevState) => !prevState);
-  };
-
-
   return (
     <Wrapper>
         <div className="bg-black p-4 rounded-md">
             <h1 className="text-white">About</h1>
         </div>
         <MainContainer>
-            <div className="card-container mb-16 relative w-64 h-60 flex items-center perspective"
-                onClick={handleCardClick}
-            >
-            <div
-                className={`about-card front absolute w-full h-full flex flex-col items-center justify-center bg-gray-600 rounded-lg shadow-md transition-transform transform-gpu ${
-                isFlipped ? 'rotate-y-180' : ''
-                }`}>
-                <img src={avatar} alt='icon'/>
-            </div>
-            <div
-                className={`about-card back absolute w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg shadow-md transition-transform transform-gpu rotate-y-180 ${
-                isFlipped ? 'rotate-y-0 opacity-100' : 'opacity-0'
-                }`}>
-                <div className="bg-gray-800 rounded-lg shadow-md p-4">
-                <h2 className="text-2xl font-semibold text-white mb-4">Skills</h2>
-                <div className="grid grid-cols-1 gap-4">
-                    {skills.map((skill, index) => (
-                    <div key={index} className="flex items-center">
-                        <span className="text-white font-semibold w-20">{skill.name}</span>
-                        <div className="h-4 bg-gray-700 rounded-full flex-grow relative">
-                        <div className="h-4 bg-green-500 rounded-full" 
-                        style={{ width: `${(skill.strength / maxStrength) * 100}%` }}/>
+            <CardContainer>
+                <FrontCard className="front">
+                    <img src={avatar} alt='icon'/>
+                </FrontCard>
+                <BackCard className="back">
+                    <SkillsContainer>
+                        <h2>Skills</h2>
+                        <div className="skills-list">
+                            {skills.map((skill, index) => (
+                            <div key={index} className="skill">
+                                <span>{skill.name}</span>
+                                <div className="skill-bar">
+                                <div className="skill-fill" 
+                                    style={{ width: `${(skill.strength / maxStrength) * 100}%` }}/>
+                                </div>
+                                <span>{skill.strength}</span>
+                            </div>
+                            ))}
                         </div>
-                        <span className="text-white font-semibold ml-2">{skill.strength}</span>
-                    </div>
-                    ))}
-                </div>
-                </div>
-            </div>
-            </div>
+                    </SkillsContainer>
+                </BackCard>
+            </CardContainer>
             <Paragraph>
-                My passion for software development began with the synergy of math and computer science. Initially intrigued by numbers, I ventured into coding through computer modules. Collaborative projects have deepened my exploration of this dynamic field.
+              My <Emphasis>passion</Emphasis> for software development began with the <Emphasis>synergy of math and computer science</Emphasis>. From solving mathematical problems to writing computer code, the journey has been <Emphasis>intellectually stimulating</Emphasis> and deeply rewarding.
             </Paragraph>
             <Paragraph>
-                Beyond the confines of the digital realm, inspiration abounds in arts, numbers, exploration, and sports. From brush strokes to strategic maneuvers, each facet offers a unique lens to fuel my creativity.
+            Beyond the confines of the digital realm, I draw inspiration from various sources: the arts, the beauty of numbers, exploration, and sports. Each activity, whether it's a brush stroke on a canvas or a strategic maneuver on the field, offers a unique perspective that fuels my <Emphasis>creativity and drive</Emphasis>.
             </Paragraph>
         </MainContainer>
     </Wrapper>

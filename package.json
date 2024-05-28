@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/caveat": "^5.0.18",
     "@fontsource/poppins": "^5.0.14",
     "@fontsource/roboto": "^5.0.13",
     "@testing-library/jest-dom": "^5.14.1",

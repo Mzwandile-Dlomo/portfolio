@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const GlobalStyle = createGlobalStyle`
+createGlobalStyle`
 /* Importing Montserrat font */
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
