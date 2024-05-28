@@ -134,6 +134,9 @@ function App() {
               <h1>PROJECTS PAGE</h1>
               {/* <Projects/> */}
             </FullScreenSection>
+            <HalfHeightScreenSection>
+              Hello, friend!
+            </HalfHeightScreenSection>
             <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
               <Contact/>
             </FullScreenSection>

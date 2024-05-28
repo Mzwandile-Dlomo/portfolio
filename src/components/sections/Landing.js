@@ -371,7 +371,7 @@ const Landing = () => {
           </SocialMediaList>
           <ResumeButtonContainer>
             <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Résumé
+              Resumé
             </ResumeButton>
           </ResumeButtonContainer>
        </InnerContainer>

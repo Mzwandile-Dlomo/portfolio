@@ -238,7 +238,7 @@ const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
           <HoverReveal className="hover-reveal">Mzwandile Dlomo</HoverReveal>
         </Logo>
         <ResumeButton to="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-          Résumé
+          Resumé
         </ResumeButton>
         <MenuContainer isMenuOpen={isMenuOpen}>
           <MenuContent>

@@ -4,6 +4,9 @@ import '@fontsource/caveat';
 const Container = styled.div`
   width: 100%;
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 
@@ -32,10 +35,26 @@ const Subtitle = styled.h2`
     font-size: 1.25rem;
   }
 `;
+
+const Emphasis = styled.span`
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  padding-right: 5px;
+
+  &:hover{
+    color: #9BCF53;
+    // background-color: red;
+  }
+`;
+
+
 const Philosophy = () => {
   return (
     <Container>
-        <Title>Philosophy</Title>
+        <Title><Emphasis>My Life Philosophy</Emphasis></Title>
+        <Subtitle>Dedicated to creating a more open, secure, and connected world through innovative software solutions.</Subtitle>
     </Container>
   )
 }
