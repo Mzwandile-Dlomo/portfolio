@@ -1,19 +1,20 @@
-import  Navbar  from './components/Navbar';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useRef, useEffect, useState } from 'react';
-import Landing from './components/sections/Landing'
-import About from './components/sections/About'
+import Navbar from './components/Navbar';
+import Landing from './components/sections/Landing';
+import About from './components/sections/About';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
-
+import Philosophy from './components/sections/Philosophy';
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  background-color: #132a13;
+  // background-color: #132a13;
+  background-color: #000;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 `;
-
 
 const MainContainer = styled.div`
   max-width: 100%;
@@ -42,7 +43,6 @@ const FlexContainer = styled.div`
 
 const LandingSection = styled.div`
   @media (min-width: 1024px) {
-    // position: -webkit-sticky;
     position: sticky;
     top: 0;
     display: flex;
@@ -64,13 +64,33 @@ const FullScreenSection = styled.section`
   padding-top: 4rem;
 `;
 
+const HalfHeightScreenSection = styled.section`
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: white;
+`;
 
+// const Circle = styled.div`
+//   position: absolute;
+//   width: 50px;
+//   height: 50px;
+//   background-color: rgba(255, 255, 255, 0.5);
+//   border-radius: 50%;
+//   pointer-events: none; /* This makes sure the circle doesn't block any mouse interactions */
+//   transform: translate(-50%, -50%);
+//   transition: transform 0.1s ease-out;
+// `;
 
 function App() {
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -80,7 +100,18 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  
+  // useEffect(() => {
+  //   const handleMouseMove = (event) => {
+  //     setMousePosition({ x: event.clientX, y: event.clientY });
+  //   };
+
+  //   window.addEventListener('mousemove', handleMouseMove);
+
+  //   return () => {
+  //     window.removeEventListener('mousemove', handleMouseMove);
+  //   };
+  // }, []);
+
   return (
     <AppContainer>
       <Navbar 
@@ -96,6 +127,9 @@ function App() {
             <FullScreenSection id="about" ref={aboutRef} bgColor="#173417">
               <About />
             </FullScreenSection>
+            <HalfHeightScreenSection>
+              <Philosophy/>
+            </HalfHeightScreenSection>
             <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
               <h1>PROJECTS PAGE</h1>
               {/* <Projects/> */}
@@ -106,6 +140,7 @@ function App() {
           </div>
         </FlexContainer>
       </MainContainer>
+      {/* <Circle style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }} /> */}
     </AppContainer>
   );
 }

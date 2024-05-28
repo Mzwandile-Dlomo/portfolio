@@ -25,7 +25,7 @@ const Nav = styled.nav`
   height: 100%;
   width: 100%;
   max-width: 1024px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
