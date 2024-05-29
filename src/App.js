@@ -132,8 +132,8 @@ function App() {
               <Philosophy/>
             </HalfHeightScreenSection>
             <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
-              <h1>PROJECTS PAGE</h1>
-              {/* <Projects/> */}
+              {/* <h1>PROJECTS PAGE</h1> */}
+              <Projects/>
             </FullScreenSection>
             <HalfHeightScreenSection>
               {/* Hello, friend! */}
