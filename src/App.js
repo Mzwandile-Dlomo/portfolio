@@ -6,6 +6,7 @@ import About from './components/sections/About';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import Philosophy from './components/sections/Philosophy';
+import Waves from './components/sections/Waves';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -135,7 +136,8 @@ function App() {
               {/* <Projects/> */}
             </FullScreenSection>
             <HalfHeightScreenSection>
-              Hello, friend!
+              {/* Hello, friend! */}
+              <Waves/>
             </HalfHeightScreenSection>
             <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
               <Contact/>
