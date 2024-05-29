@@ -206,7 +206,7 @@ const NavIndicator = styled.span`
   margin-right: 1rem;
   height: 2px;
   width: ${({ active }) => (active ? '32px' : '10px')};
-  background-color: ${({ active }) => (active ? '#000' : 'transparent')};
+  background-color: #9BCF53;
   transition: width 0.3s ease;
   transform: translateX(-0%);
 `;

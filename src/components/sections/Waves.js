@@ -39,7 +39,7 @@ const ItemsContainer = styled.div`
 
 const Item = styled.div`
   width: calc(var(--index) * 3);
-  height: calc(var(--index) * 12);
+  height: calc(var(--index) * 16);
   background-color: #222;
   background-size: cover;
   background-position: center;
