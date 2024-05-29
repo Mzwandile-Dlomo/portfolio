@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
+import '@fontsource/caveat';
 
 createGlobalStyle`
 /* Importing Montserrat font */
@@ -38,6 +39,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 
+
 const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,6 +56,19 @@ const ResumeButtonContainer = styled.div`
 
   @media (min-width: 1025px) {
     display: none;
+  }
+`;
+
+const Emphasis = styled.span`
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  padding-right: 5px;
+
+  &:hover{
+    color: #9BCF53;
+    // background-color: red;
   }
 `;
 
@@ -191,7 +206,7 @@ const NavIndicator = styled.span`
   margin-right: 1rem;
   height: 2px;
   width: ${({ active }) => (active ? '32px' : '10px')};
-  background-color: ${({ active }) => (active ? '#000' : 'transparent')};
+  background-color: #9BCF53;
   transition: width 0.3s ease;
   transform: translateX(-0%);
 `;
@@ -277,8 +292,9 @@ const Landing = () => {
             ))}
             <span className="space"></span>
             <h1 className='surname'>Dlomo</h1>
+            <h1 className='surname'><Emphasis>.</Emphasis></h1>
           </Title>
-          <Subtitle>Junior Software Engineer</Subtitle>
+          <Subtitle>Software Engineer</Subtitle>
           <Description>
             With logic and creativity intertwined,<br />
             I bring visions to life, line by line.
@@ -291,7 +307,7 @@ const Landing = () => {
                   className="group flex items-center py-3 nav-link"
                   href="#about"
                   active={activeSection === 'about'}
-                  activeColor="#FFD700"
+                  activeColor="#9BCF53"
                 >
                   <NavIndicator active={activeSection === 'about'} />
                   <NavText>About</NavText>
@@ -302,7 +318,7 @@ const Landing = () => {
                   className="group flex items-center py-3 nav-link"
                   href="#projects"
                   active={activeSection === 'projects'}
-                  activeColor="#FFA500"
+                  activeColor="#9BCF53"
                 >
                   <NavIndicator active={activeSection === 'projects'} />
                   <NavText>Projects</NavText>
@@ -313,7 +329,7 @@ const Landing = () => {
                   className="group flex items-center py-3 nav-link"
                   href="#contact"
                   active={activeSection === 'contact'}
-                  activeColor="#FF8C00"
+                  activeColor="#9BCF53"
                 >
                   <NavIndicator active={activeSection === 'contact'} />
                   <NavText>Contact</NavText>
@@ -355,7 +371,7 @@ const Landing = () => {
           </SocialMediaList>
           <ResumeButtonContainer>
             <ResumeButton href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Résumé
+              Resumé
             </ResumeButton>
           </ResumeButtonContainer>
        </InnerContainer>

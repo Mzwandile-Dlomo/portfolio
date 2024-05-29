@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import avatar from '../../assets/avatar.png';
-
-// Import custom font
 import '@fontsource/caveat';
+
+
+
 
 const Wrapper = styled.div`
   border-radius: 0.375rem;
@@ -39,6 +40,11 @@ const Emphasis = styled.span`
   font-weight: bold;
   color: black;
   padding-right: 5px;
+
+  &:hover{
+    color: #9BCF53;
+    // background-color: red;
+  }
 `;
 
 const CardContainer = styled.div`
