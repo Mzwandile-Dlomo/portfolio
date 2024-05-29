@@ -134,9 +134,9 @@ const App = () => {
     'https://e22u.short.gy/ne5nuX',
     'https://e22u.short.gy/cwZrVj',
     'https://e22u.short.gy/Xvf2a1',
-    'https://e22u.short.gy/pCrIJq',
-    'https://e22u.short.gy/mSLCrl',
-    'https://e22u.short.gy/EwQcy5',
+    // 'https://e22u.short.gy/pCrIJq',
+    // 'https://e22u.short.gy/mSLCrl',
+    // 'https://e22u.short.gy/EwQcy5',
   ];
 
   return (
