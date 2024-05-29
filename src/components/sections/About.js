@@ -172,7 +172,7 @@ const About = () => {
                 </BackCard>
             </CardContainer>
             <Paragraph>
-              My <Emphasis>passion</Emphasis> for software development began with the <Emphasis>synergy of math and computer science</Emphasis>. From solving mathematical problems to writing computer code, the journey has been <Emphasis>intellectually stimulating</Emphasis> and deeply rewarding.
+              The <Emphasis>passion</Emphasis> for software development began with the <Emphasis>synergy of math and computer science</Emphasis>. From solving mathematical problems to writing computer code, the journey has been <Emphasis>intellectually stimulating</Emphasis> and deeply rewarding.
             </Paragraph>
             <Paragraph>
             Beyond the confines of the digital realm, I draw inspiration from various sources: the arts, the beauty of numbers, exploration, and sports. Each activity, whether it's a brush stroke on a canvas or a strategic maneuver on the field, offers a unique perspective that fuels my <Emphasis>creativity and drive</Emphasis>.
