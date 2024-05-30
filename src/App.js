@@ -10,11 +10,11 @@ import Waves from './components/sections/Waves';
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  // background-color: #132a13;
   background-color: #000;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  // overflow: hidden;
 `;
 
 const MainContainer = styled.div`
@@ -75,16 +75,16 @@ const HalfHeightScreenSection = styled.section`
   color: white;
 `;
 
-// const Circle = styled.div`
-//   position: absolute;
-//   width: 50px;
-//   height: 50px;
-//   background-color: rgba(255, 255, 255, 0.5);
-//   border-radius: 50%;
-//   pointer-events: none; /* This makes sure the circle doesn't block any mouse interactions */
-//   transform: translate(-50%, -50%);
-//   transition: transform 0.1s ease-out;
-// `;
+const Circle = styled.div`
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+`;
 
 function App() {
   const aboutRef = useRef(null);
@@ -101,17 +101,17 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // useEffect(() => {
-  //   const handleMouseMove = (event) => {
-  //     setMousePosition({ x: event.clientX, y: event.clientY });
-  //   };
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    };
 
-  //   window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
 
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <AppContainer>
@@ -132,11 +132,9 @@ function App() {
               <Philosophy/>
             </HalfHeightScreenSection>
             <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
-              {/* <h1>PROJECTS PAGE</h1> */}
               <Projects/>
             </FullScreenSection>
             <HalfHeightScreenSection>
-              {/* Hello, friend! */}
               <Waves/>
             </HalfHeightScreenSection>
             <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
@@ -145,7 +143,7 @@ function App() {
           </div>
         </FlexContainer>
       </MainContainer>
-      {/* <Circle style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }} /> */}
+      <Circle style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }} /> 
     </AppContainer>
   );
 }
