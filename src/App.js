@@ -131,9 +131,9 @@ function App() {
             <HalfHeightScreenSection>
               <Philosophy/>
             </HalfHeightScreenSection>
-            <FullScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
+            <HalfHeightScreenSection id="projects" ref={projectsRef} bgColor="#132b13">
               <Projects/>
-            </FullScreenSection>
+            </HalfHeightScreenSection>
             <HalfHeightScreenSection>
               <Waves/>
             </HalfHeightScreenSection>

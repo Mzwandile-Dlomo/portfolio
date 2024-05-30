@@ -6,7 +6,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100hv;
   border-radius: 8px;
+  // padding: 4rem;
+  // margin-bottom: 4rem;
+  background-color: #3a5a40;
 `;
 
 const Header = styled.div`
@@ -88,27 +92,31 @@ const Projects = () => {
       <Header>
         <HeaderTitle>Projects</HeaderTitle>
       </Header>
-      <SubText>Some projects I've worked on.</SubText>
-      <CardsContainer>
-        <Card background="linear-gradient(to bottom, #2f5f40, #000)" left="-10rem">
-          <CardDetails>
-            <CardDetailsHeader>Project 1</CardDetailsHeader>
-            <CardDetailsButton to="/project1">Link to Project 1</CardDetailsButton>
-          </CardDetails>
-        </Card>
-        <Card background="linear-gradient(to bottom, #3a5a40, #000)" left="-6.5rem">
-          <CardDetails>
-            <CardDetailsHeader>Project 2</CardDetailsHeader>
-            <CardDetailsButton to="/project2">Link to Project 2</CardDetailsButton>
-          </CardDetails>
-        </Card>
-        <Card background="linear-gradient(to bottom, #ffcb05, #000)" left="-5rem">
-          <CardDetails>
-            <CardDetailsHeader>Project 3</CardDetailsHeader>
-            <CardDetailsButton to="/project3">Link to Project 3</CardDetailsButton>
-          </CardDetails>
-        </Card>
-      </CardsContainer>
+      <div className='flex flex-col justify-center items-center'>
+        <div className='pt-8'>
+          <SubText>Some projects I've worked on.</SubText>
+        </div>
+        <CardsContainer>
+          <Card background="linear-gradient(to bottom, #2f5f40, #000)" left="-10rem">
+            <CardDetails>
+              <CardDetailsHeader>Project 1</CardDetailsHeader>
+              <CardDetailsButton to="/project1">Link to Project 1</CardDetailsButton>
+            </CardDetails>
+          </Card>
+          <Card background="linear-gradient(to bottom, #3a5a40, #000)" left="-6.5rem">
+            <CardDetails>
+              <CardDetailsHeader>Project 2</CardDetailsHeader>
+              <CardDetailsButton to="/project2">Link to Project 2</CardDetailsButton>
+            </CardDetails>
+          </Card>
+          <Card background="linear-gradient(to bottom, #ffcb05, #000)" left="-5rem">
+            <CardDetails>
+              <CardDetailsHeader>Project 3</CardDetailsHeader>
+              <CardDetailsButton to="/project3">Link to Project 3</CardDetailsButton>
+            </CardDetails>
+          </Card>
+        </CardsContainer>
+      </div>
     </Container>
   );
 };
