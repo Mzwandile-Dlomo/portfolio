@@ -28,7 +28,7 @@ const MainContainer = styled.div`
 const Paragraph = styled.p`
   font-size: 16px;
   line-height: 1.6;
-  color: #0008990;
+  color: #D1D8C5;
   padding-left: 32px;
   padding-right: 32px;
   margin-bottom: 12px;

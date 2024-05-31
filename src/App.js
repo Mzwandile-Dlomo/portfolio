@@ -14,7 +14,6 @@ const AppContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  // overflow: hidden;
 `;
 
 const MainContainer = styled.div`
@@ -63,6 +62,7 @@ const FullScreenSection = styled.section`
   justify-content: center;
   background-color: ${(props) => props.bgColor};
   padding-top: 4rem;
+  border-radius: 1rem
 `;
 
 const HalfHeightScreenSection = styled.section`

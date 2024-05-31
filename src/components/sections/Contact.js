@@ -7,6 +7,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  // border-radius: 1rem;
 
   @media (max-width: 600px) {
     padding: 0.5rem;

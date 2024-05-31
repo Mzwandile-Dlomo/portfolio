@@ -10,8 +10,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  padding: 4rem;
-  background-color: #3a5a40;
+  background-color: #173417;
 `;
 
 const Header = styled.div`
@@ -19,6 +18,7 @@ const Header = styled.div`
   padding-top: 3rem;
   background-color: #3a5a40;
   padding: 1rem;
+  margin-bottom: 2rem;
   border-radius: 8px;
 `;
 

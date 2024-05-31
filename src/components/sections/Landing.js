@@ -76,7 +76,7 @@ const ResumeButton = styled.a`
   display: block;
   text-decoration: none;
   color: black;
-  background-color: #fff;
+  background-color: #D1D8C5;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -157,7 +157,7 @@ const Subtitle = styled.h2`
 const Description = styled.p`
   margin-top: 1rem;
   text-align: center;
-  color: #F0EFEB;
+  color: #D1D8C5;
   line-height: 1.5;
 
   br {
@@ -236,7 +236,7 @@ const SocialMediaListItem = styled.li`
 
 const SocialMediaLink = styled(Link)`
   display: block;
-  color: inherit;
+  color: #D1D8C5;
 
   &:hover {
     color: #ffd700;
