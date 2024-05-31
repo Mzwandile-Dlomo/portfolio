@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import '@fontsource/caveat';
+
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100hv;
+  height: 100%;
   border-radius: 8px;
-  // padding: 4rem;
-  // margin-bottom: 4rem;
+  padding: 4rem;
   background-color: #3a5a40;
 `;
 
@@ -19,10 +20,6 @@ const Header = styled.div`
   background-color: #3a5a40;
   padding: 1rem;
   border-radius: 8px;
-`;
-
-const HeaderTitle = styled.h1`
-  color: white;
 `;
 
 const CardsContainer = styled.div`
@@ -80,6 +77,19 @@ const CardDetailsButton = styled(Link)`
   text-decoration: none;
 `;
 
+const Emphasis = styled.h1`
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  color: white;
+  padding-right: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  perspective: 1000px;
+
+  &:hover{
+    color: #9BCF53;
+  }
+`;
+
 const SubText = styled.div`
   padding-top: 4rem;
   font-weight: 600;
@@ -90,7 +100,7 @@ const Projects = () => {
   return (
     <Container>
       <Header>
-        <HeaderTitle>Projects</HeaderTitle>
+        <Emphasis>Projects</Emphasis>
       </Header>
       <div className='flex flex-col justify-center items-center'>
         <div className='pt-8'>
