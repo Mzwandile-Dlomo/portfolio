@@ -16,7 +16,7 @@ const Title = styled.h1`
   font-size: 1.2rem;
   text-align: center;
   font-weight: 600;
-  color: #9BCF53;
+  color: #D1D8C5;
   margin: 20px 0;
   cursor: pointer;
 
@@ -27,7 +27,7 @@ const Subtitle = styled.h3`
   text-align: center;
   font-size: 0.4rem;
   font-weight: medium;
-  color: #69b25b;
+  color: #D1D8C5;
 
   @media (min-width: 640px) {
     font-size: 1.05rem;
@@ -37,9 +37,7 @@ const Subtitle = styled.h3`
 const Emphasis = styled.span`
   font-family: 'Caveat', cursive;
   font-weight: bold;
-  color: white;
   padding-right: 5px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   perspective: 1000px;
 
   &:hover{

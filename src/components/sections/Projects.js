@@ -10,6 +10,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  // margin-bottom: 2rem;
   background-color: #173417;
 `;
 
@@ -102,10 +103,10 @@ const Projects = () => {
       <Header>
         <Emphasis>Projects</Emphasis>
       </Header>
-      <div className='flex flex-col justify-center items-center'>
-        <div className='pt-8'>
+      {/* <div className='flex flex-col justify-center items-center'> */}
+        {/* <div className='pt-8'>
           <SubText>Some projects I've worked on.</SubText>
-        </div>
+        </div> */}
         <CardsContainer>
           <Card background="linear-gradient(to bottom, #2f5f40, #000)" left="-10rem">
             <CardDetails>
@@ -126,7 +127,7 @@ const Projects = () => {
             </CardDetails>
           </Card>
         </CardsContainer>
-      </div>
+      {/* </div> */}
     </Container>
   );
 };

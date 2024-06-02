@@ -67,7 +67,7 @@ const FullScreenSection = styled.section`
 
 const HalfHeightScreenSection = styled.section`
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,7 +137,7 @@ function App() {
             <HalfHeightScreenSection>
               <Waves/>
             </HalfHeightScreenSection>
-            <FullScreenSection id="contact" ref={contactRef} bgColor="#173417">
+            <FullScreenSection id="contact" ref={contactRef} bgColor="#000"> // 
               <Contact/>
             </FullScreenSection>
           </div>

@@ -43,7 +43,6 @@ const Emphasis = styled.span`
 
   &:hover{
     color: #9BCF53;
-    // background-color: red;
   }
 `;
 
