@@ -190,6 +190,7 @@ import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import Philosophy from './components/sections/Philosophy';
 import Waves from './components/sections/Waves';
+import Skills from './components/sections/Skills';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -344,6 +345,7 @@ function App() {
             </Section>
             <Section className="reveal-section" fullHeight={false}>
               <Waves />
+              {/* <Skills /> */}
             </Section>
             <Section className="reveal-section" id="contact" ref={contactRef} bgColor="#000" fullHeight>
               <Contact />
