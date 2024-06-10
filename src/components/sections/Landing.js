@@ -1,38 +1,9 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
 import '@fontsource/caveat';
 
-createGlobalStyle`
-/* Importing Montserrat font */
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-  /* Importing Roboto font */
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-  /* Importing Open Sans font */
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-
-  /* Importing Lato font */
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
-  /* Importing Nunito font */
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-
-  /* Importing Source Sans Pro font */
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
-
-  /* Importing Poppins font */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-  /* Importing Playfair Display font */
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
-  /* Importing Quicksand font */
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
-`;
 
 const Container = styled.div`
   width: 100%;
@@ -88,8 +59,10 @@ const ResumeButton = styled.a`
 `;
 
 const Title = styled.h1`
-  font-family: 'Nunito', 'Montserrat', sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Nunito', 'Montserrat', 'Aboreto', sans-serif;
+  font-size: 0.24rem;
+
+  // font-size: 2.5rem;
   text-align: center;
   font-weight: 700;
   line-height: 1.2;
